@@ -295,7 +295,74 @@ Lp+avdanIgi8Cnps/DpMI2KigEHW5mmqihXtfKj0jeE=
 EOF
 }
 
-function error_exit() {
+setup_maven_settings(){
+cat << EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="https://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd" xmlns="https://maven.apache.org/SETTINGS/1.0.0"
+    xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
+  <!-- Generated from https://zafindev.com/artifactory/webapp/mavensettings.html -->
+
+  <!-- Where you want Maven to save downloaded jars -->
+  <localRepository>${user.home}/.m2/repo-zcloud</localRepository>
+  <servers>
+    <server>
+      <id>docker.artifactory.zcloudcentral.com</id>
+      <username>$1</username>
+      <password>$2</password>
+    </server>
+    <server>
+      <id>artifactory.zcloudcentral.com</id>
+      <username>$1</username>
+      <password>$2</password>
+    </server>
+    <server>
+      <id>libs-release</id>
+      <username>$1</username>
+      <password>$2</password>
+    </server>
+    <server>
+      <id>plugins-release</id>
+      <username>$1</username>
+      <password>$2</password>
+    </server>
+	<server>
+      <id>zafin-repos</id>
+      <username>$1</username>
+      <password>$2</password>
+    </server>
+  </servers>
+
+
+  <profiles>
+    <profile>
+      <id>zcloudcentral</id>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>libs-release</id>
+          <name>libs-release</name>
+          <url>https://artifactory.zcloudcentral.com/artifactory/libs-release/</url>
+        </repository>
+		 <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>zafin-repos</id>
+          <name>zafin-repos</name>
+          <url>https://zafindev.com:9443/artifactory/zafin-repos/</url>
+        </repository>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>zcloudcentral</activeProfile>
+  </activeProfiles>
+</settings>
+EOF
+}
+
+error_exit(){
     echo "$*" 1>&2
     exit 1
 }
@@ -319,7 +386,7 @@ rpm --import /etc/pki/rpm-gpg/ELK-GPG-KEY
 rpm --import /etc/pki/rpm-gpg/GPG-KEY-WAZUH
 rpm --import /etc/pki/rpm-gpg/NODESOURCE-GPG-SIGNING-KEY-EL
 
-yum install -q -y yum-utils curl wget git java-1.8.0-openjdk
+yum install -q -y yum-utils curl wget git docker java-1.8.0-openjdk
 
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.161-0.b14.el7_4.x86_64
 
@@ -333,3 +400,11 @@ rm apache-maven-3.5.2-bin.tar.gz
 export M2_HOME=/usr/local/apache-maven/apache-maven-3.5.2
 export M2=$M2_HOME/bin
 ln -s $M2/mvn /usr/bin/mvn
+cd $M2_HOME/conf/settings.xml $M2_HOME/conf/settings-bac.xml && setup_maven_settings $2 $3
+
+#Configure Docker
+echo ADD_REGISTRY=\'--add-registry docker.artifactory.zcloudcentral.com\' >> /etc/sysconfig/docker
+echo INSECURE_REGISTRY=\'--insecure-registry docker.artifactory.zcloudcentral.com\' >> /etc/sysconfig/docker
+
+systemctl restart docker
+
