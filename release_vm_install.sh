@@ -75,6 +75,7 @@ setup_openlogic_gpgkey(){
 cat << EOF
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2.0.14 (GNU/Linux)
+
 mQENBFLWzI0BCAC4HfUh5EYvJiDdE3u/Vz6dwe+77S15F3CcwPZaTbys02Cf8xp5
 W/P9oSV0yBYGSRLEYTZE8RWyC4pdBjG9uxeoDnRsBG5BZnq3WbX2FiQzjSohtjbV
 SqfTiY9d+RqEmXnVR2TeHJxEZgzFUre13x9KtNJxAb1aTOeF6lyoFXeKo1d7fwVL
@@ -109,6 +110,7 @@ EOF
 setup_docker_gpgkey(){
 cat << EOF
 -----BEGIN PGP PUBLIC KEY BLOCK-----
+
 mQINBFit5IEBEADDt86QpYKz5flnCsOyZ/fk3WwBKxfDjwHf/GIflo+4GWAXS7wJ
 1PSzPsvSDATV10J44i5WQzh99q+lZvFCVRFiNhRmlmcXG+rk1QmDh3fsCCj9Q/yP
 w8jn3Hx0zDtz8PIB/18ReftYJzUo34COLiHn8WiY20uGCF2pjdPgfxE+K454c4G7
@@ -142,6 +144,7 @@ setup_epel_gpgkey(){
 cat << EOF
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v1.4.11 (GNU/Linux)
+
 mQINBFKuaIQBEAC1UphXwMqCAarPUH/ZsOFslabeTVO2pDk5YnO96f+rgZB7xArB
 OSeQk7B90iqSJ85/c72OAn4OXYvT63gfCeXpJs5M7emXkPsNQWWSju99lW+AqSNm
 jYWhmRlLRGl0OO7gIwj776dIXvcMNFlzSPj00N2xAqjMbjlnV2n2abAE5gq6VpqP
@@ -175,6 +178,7 @@ setup_elk_gpgkey(){
 cat << EOF
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2.0.14 (GNU/Linux)
+
 mQENBFI3HsoBCADXDtbNJnxbPqB1vDNtCsqhe49vFYsZN9IOZsZXgp7aHjh6CJBD
 A+bGFOwyhbd7at35jQjWAw1O3cfYsKAmFy+Ar3LHCMkV3oZspJACTIgCrwnkic/9
 CUliQe324qvObU2QRtP4Fl0zWcfb/S8UYzWXWIFuJqMvE9MaRY1bwUBvzoqavLGZ
@@ -210,6 +214,7 @@ setup_wazuh_gpgkey(){
 cat << EOF
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v1
+
 mQINBFeeyYwBEACyf4VwV8c2++J5BmCl6ofLCtSIW3UoVrF4F+P19k/0ngnSfjWb
 8pSWB11HjZ3Mr4YQeiD7yY06UZkrCXk+KXDlUjMK3VOY7oNPkqzNaP6+8bDwj4UA
 hADMkaXBvWooGizhCoBtDb1bSbHKcAnQ3PTdiuaqF5bcyKk8hv939CHulL2xH+BP
@@ -266,6 +271,7 @@ setup_nodejs_gpgkey(){
 cat << EOF
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v1
+
 mQINBFQCN9QBEADv5QYOlCWNkI/oKST/GGpQkOZjFY2cbYdHuc2j8kyM4oeNluXq
 puEYMHOoQvbJ3DFPvsv+jCruL7qjkel9YzaF6e3RN2ystP4YBjxyOT7Bb5EnjNNU
 6oScQJ50/+RmA4N3wzBrw5+x5KQGBfRU/k7JdDKO6SGY0zzdAo3jqp1nQ9Sf+Fmg
