@@ -309,7 +309,7 @@ cat << EOF
   <!-- Generated from https://zafindev.com/artifactory/webapp/mavensettings.html -->
 
   <!-- Where you want Maven to save downloaded jars -->
-  <localRepository>${user.home}/.m2/repo-zcloud</localRepository>
+  <localRepository>/home/zafin/.m2/repo-zcloud</localRepository>
   <servers>
     <server>
       <id>docker.artifactory.zcloudcentral.com</id>
