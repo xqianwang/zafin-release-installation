@@ -351,7 +351,7 @@ cat << EOF
           <name>libs-release</name>
           <url>https://artifactory.zcloudcentral.com/artifactory/libs-release/</url>
         </repository>
-		 <repository>
+	<repository>
           <snapshots>
             <enabled>false</enabled>
           </snapshots>
