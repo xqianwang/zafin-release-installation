@@ -406,7 +406,7 @@ rm apache-maven-3.5.2-bin.tar.gz
 export M2_HOME=/usr/local/apache-maven/apache-maven-3.5.2
 export M2=$M2_HOME/bin
 ln -s $M2/mvn /usr/bin/mvn
-cd $M2_HOME/conf/settings.xml $M2_HOME/conf/settings-bac.xml && setup_maven_settings $2 $3
+cp $M2_HOME/conf/settings.xml $M2_HOME/conf/settings-bac.xml && setup_maven_settings $2 $3
 
 #Configure Docker
 echo ADD_REGISTRY=\'--add-registry docker.artifactory.zcloudcentral.com\' >> /etc/sysconfig/docker
