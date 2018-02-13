@@ -337,8 +337,7 @@ cat << EOF
       <password>$2</password>
     </server>
   </servers>
-
-
+  
   <profiles>
     <profile>
       <id>zcloudcentral</id>
@@ -359,6 +358,7 @@ cat << EOF
           <name>zafin-repos</name>
           <url>https://zafindev.com:9443/artifactory/zafin-repos/</url>
         </repository>
+      </repositories>  
     </profile>
   </profiles>
   <activeProfiles>
